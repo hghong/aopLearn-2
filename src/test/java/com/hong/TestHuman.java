@@ -10,11 +10,19 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("/applicationContext.xml")
 public class TestHuman {
+	@Resource(name="human")
+	private Sleepable sleepable;
+	
 	@Resource
-	private Sleepable human;
+	private Human human;
 	
 	@Test
 	public void testSleep()  {
+		sleepable.sleep();
+	}
+	
+	@Test
+	public void testHumanSleep()  {
 		human.sleep();
 	}
 }
